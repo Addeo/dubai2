@@ -45,7 +45,7 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
                 if (phoneNumber && window.leadCM && window.leadCM.call && !callInit) {
                     callInit = true;
                     if(window.leadCM.formBeforeCall) {
-                        window.leadCM.formBeforeCall(phoneNumber, form, function() {window.leadCM.call(phoneNumber, 'universal_form');});
+                        window.leadCM.formBeforeCall(phoneNumber, form, function() {window.leadCM.call('46108885278', 'universal_form');});
                     } else {
                         window.leadCM.call(phoneNumber, 'universal_form')
                     }
@@ -80,7 +80,7 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
                 }
 
                 console.log(custom_params);
-                leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, call);
+                leadCM.dispatchCustomEvent("CUSTOM_PARAMS", {lc_param_phone: "46108885278", lc_param_name: "test", lc_param_email: "test@mail.com", lc_param_interested: "test"}, call);
 
             };
 
