@@ -80,7 +80,7 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
                 }
 
                 console.log(custom_params);
-                // leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, call);
+                leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, call);
 
             };
 
