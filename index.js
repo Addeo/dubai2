@@ -45,9 +45,11 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
                 if (phoneNumber && window.leadCM && window.leadCM.call && !callInit) {
                     callInit = true;
                     if(window.leadCM.formBeforeCall) {
+                        console.log('formBeforeCall')
                         window.leadCM.formBeforeCall(phoneNumber, form, function() {window.leadCM.call('46108885278', 'universal_form');});
                     } else {
-                        window.leadCM.call(phoneNumber, 'universal_form')
+                        console.log('call')
+                        window.leadCM.call('46108885278', 'universal_form')
                     }
                 }
             });
@@ -79,7 +81,7 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
                     custom_params['lc_param_interested'] = userInterested;
                 }
 
-                console.log(custom_params);
+                console.log('custom_params', custom_params);
                 leadCM.dispatchCustomEvent("CUSTOM_PARAMS", {lc_param_phone: "46108885278", lc_param_name: "test", lc_param_email: "test@mail.com", lc_param_interested: "test"}, call);
 
             };
