@@ -187,7 +187,14 @@ function connectForm() {
             }
 
             console.log(custom_params);
-            leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, call);
+            leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, call)
+                .then(
+                    console.log('then')
+                )
+                .catch(
+                    console.log('catch')
+                )
+            ;
 
         };
 
@@ -232,12 +239,12 @@ function connectFormHardcor() {
 
         formButton.addEventListener('click', function (e) {
             var phoneNumber = window.leadCM.formTelInputSelector(form);
-            if (phoneNumber && window.leadCM && window.leadCM.call && !callInit) {
+            if (window.leadCM && window.leadCM.call && !callInit) {
                 callInit = true;
                 if(window.leadCM.formBeforeCall) {
-                    window.leadCM.formBeforeCall(phoneNumber, form, function() {window.leadCM.call(phoneNumber, 'universal_form');});
+                    window.leadCM.formBeforeCall('46108885278', form, function() {window.leadCM.call(phoneNumber, 'universal_form');});
                 } else {
-                    window.leadCM.call(phoneNumber, 'universal_form')
+                    window.leadCM.call('46108885278', 'universal_form')
                 }
             }
         });
