@@ -128,21 +128,21 @@ function connectForm() {
 
             if (phone.substring(0, 3) == '971') {
                 phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                console.log('phone number without zeros after country code: ', phone);
+                // console.log('phone number without zeros after country code: ', phone);
             }
 
             if (phone.substring(0, 1) == '0') {
                 phone = phone.replace(/^0+/, ''); // remove all zeros in the beginning of phone number
-                console.log('phone without zeros in the beginning: ', phone);
+                // console.log('phone without zeros in the beginning: ', phone);
                 if (phone.substring(0, 3) == '971') {
                     phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                    console.log('phone number without zeros after country code: ', phone);
+                    // console.log('phone number without zeros after country code: ', phone);
                 } else if (phone.substring(0, 3) != '971') {
                     phone = '971' + phone; // add country code if no country code
-                    console.log('phone with country code: ', phone);
+                    // console.log('phone with country code: ', phone);
                 }
             }
-            console.log('phone: ', phone);
+            // console.log('phone: ', phone);
             return phone;
 
         };
@@ -211,21 +211,21 @@ function connectFormHardcor() {
 
             if (phone.substring(0, 3) == '971') {
                 phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                console.log('phone number without zeros after country code: ', phone);
+                // console.log('phone number without zeros after country code: ', phone);
             }
 
             if (phone.substring(0, 1) == '0') {
                 phone = phone.replace(/^0+/, ''); // remove all zeros in the beginning of phone number
-                console.log('phone without zeros in the beginning: ', phone);
+                // console.log('phone without zeros in the beginning: ', phone);
                 if (phone.substring(0, 3) == '971') {
                     phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                    console.log('phone number without zeros after country code: ', phone);
+                    // console.log('phone number without zeros after country code: ', phone);
                 } else if (phone.substring(0, 3) != '971') {
                     phone = '971' + phone; // add country code if no country code
-                    console.log('phone with country code: ', phone);
+                    // console.log('phone with country code: ', phone);
                 }
             }
-            console.log('phone: ', phone);
+            // console.log('phone: ', phone);
             return phone;
 
         };
