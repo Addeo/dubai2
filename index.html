@@ -60,9 +60,8 @@
             padding: 30px 30px 30px 30px;
         }
     </style>
-    <script> (function f() { var widget_key = '318a8f7a0659d5ebdb3bec45ac54b718'; window.leadCM = { widget_key: widget_key, }; var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true; em.src = './icallback.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s); })(); </script>
-<!--    <script> (function f() { var widget_key = 'ce3ecf82e4840a3ca475a4532dbee1ad'; window.leadCM = { widget_key: widget_key, }; var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true; em.src = 'https://app.convolo.ai/js/icallback.js?v=' + Math.random() + '&key=' + widget_key + '&uri=' + encodeURIComponent(window.location.href); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s); })(); </script>-->
-</head>
+    <script> (function f() { var widget_key = '318a8f7a0659d5ebdb3bec45ac54b718'; window.leadCM = { widget_key: widget_key, }; var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true; em.src = 'https://app.convolo.ai/js/icallback.js?v=' + Math.random() + '&key=' + widget_key + '&uri=' + encodeURIComponent(window.location.href); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s); })(); </script>
+   </head>
 <body>
 <div class="container">
     <div>test widget with input settings</div>
@@ -118,78 +117,5 @@
     </section>
 </div></div><div class="dialog-buttons-wrapper dialog-lightbox-buttons-wrapper" bis_skin_checked="1"></div><div class="dialog-close-button dialog-lightbox-close-button" bis_skin_checked="1"><i class="eicon-close"></i></div></div></div>
 <script src="index.js"></script>
-<script>
-    (function f() {
-        // если только локально сделать true
-        const ONLY_LOCAL = false;
-        const USE_TEST_SETTINGS = false;
-        const NO_REAL_CALLS = false;
-
-        // будет использоваться тестовое окружение если не ONLY_LOCAL
-        let widget_key = "318a8f7a0659d5ebdb3bec45ac54b718";
-        let base_url = "https://app.convolo.ai";
-
-        // start for test page
-        const lc_widget_key = window.location.search ?
-            window.location.search.match(/lc_widget_key=([^&]+)/) ?
-                window.location.search.match(/lc_widget_key=([^&]+)/)[1]
-                : null : null;
-        if (lc_widget_key) widget_key = lc_widget_key;
-
-
-        const lc_url = window.location.search ?
-            window.location.search.match(/lc_url=([^&]+)/) ?
-                window.location.search.match(/lc_url=([^&]+)/)[1]
-                : null : null;
-
-        if (lc_url) base_url = lc_url;
-
-        // noConsole console.log(base_url);
-
-        const leadCM = {
-            widget_key: widget_key,
-            visit_id: "",
-            // when defaults aren't set
-            settings_url: base_url + '/api/v1/ext/widget-settings/' + widget_key,
-            submit_url: base_url + '/api/v1/ext/add-call/',
-            time_available_url: base_url + '/api/v1/ext/widget-get-time-available/' + widget_key,
-            register_url: base_url + '/api/v1/ext/register-event/',
-            use_test_settings: USE_TEST_SETTINGS,
-            only_local: ONLY_LOCAL,
-            no_real_calls: NO_REAL_CALLS,
-            start_opened: false,
-        };
-
-        if (!widget_key && !leadCM.use_test_settings) return;
-        // end for test page
-
-        if (window.location.search && window.location.search.match(/testPage=1/)) {
-            leadCM.start_opened = true;
-            leadCM.use_test_settings = false;
-        }
-
-        // start for chrome extension
-        const el = document.createElement('meta');
-        el.id = "leadCM_meta";
-        el.name = "leadCM_meta";
-        el.content = JSON.stringify(leadCM);
-        // noinspection JSCheckFunctionSignatures
-        document.head.appendChild(el);
-        // end for chrome extension
-
-        window.leadCM = leadCM;
-
-        const script_url = ONLY_LOCAL ? 'main.js' : base_url + '/js/icallback.js';
-
-        const em = document.createElement('script');
-        em.type = 'text/javascript';
-        em.async = true;
-        em.src = script_url + '?v=' + Math.random() + '&key=' + widget_key
-            + '&uri=' + encodeURIComponent(window.location.href);
-        const s = document.getElementsByTagName('script')[0];
-        // noinspection JSCheckFunctionSignatures
-        s.parentNode.insertBefore(em, s);
-    })();
-</script>
 </body>
 </html>
