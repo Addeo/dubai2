@@ -65,14 +65,13 @@ function connectForm() {
                 var nameInput = form.querySelector('input[name="wpforms[fields][0]"]');
                 var emailInput = form.querySelector('input[name="wpforms[fields][1]"]');;
                 var interestedInput = form.querySelector('textarea[name="wpforms[fields][2]"]');
-
-
+                var phone = form.querySelector('input[type="tel"]').value.replace(/ /g,'').replace('+', '');
                 var userName = nameInput ? nameInput.value : null;
                 var userEmail = emailInput ? emailInput.value : null;
                 var userInterested = interestedInput ? interestedInput.value : null;
 
                 var custom_params = {
-                    lc_param_phone: '1111',
+                    lc_param_phone: phone,
                 };
 
                 if (userName) {
@@ -88,7 +87,7 @@ function connectForm() {
                 }
 
                 console.log(custom_params);
-                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call('1111', 'universal_form');});
+                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call(phone, 'universal_form');});
 
             }
         });
