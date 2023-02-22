@@ -3,7 +3,7 @@ console.log('init')
 
 document.querySelectorAll('button[id="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4OTA3IiwidG9nZ2xlIjpmYWxzZX0%3D"]').forEach((element) => {
     element.addEventListener('click', () => {
-        var dialog = document.querySelector('.dialog-type-lightbox')
+        let dialog = document.querySelector('.dialog-type-lightbox')
             if (dialog) {
                 dialog.style.display = 'flex'
             }
@@ -14,7 +14,7 @@ document.querySelectorAll('button[id="#elementor-action%3Aaction%3Dpopup%3Aopen%
 
 document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4OTA3IiwidG9nZ2xlIjpmYWxzZX0%3D2"]').forEach((element) => {
     element.addEventListener('click', () => {
-        var dialog = document.querySelector('.dialog-type-lightbox')
+        let dialog = document.querySelector('.dialog-type-lightbox')
         if (dialog) {
             dialog.style.display = 'flex'
         }
@@ -25,12 +25,12 @@ document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26s
 
 function connectForm() {
     console.log('connectForm')
-    var callInit = false;
-    var form = document.querySelector('.elementor-popup-modal form');
+    let callInit = false;
+    let form = document.querySelector('.elementor-popup-modal form');
 
     if (form) {
 
-        var formButton = form.querySelector('button[type="submit"]');
+        let formButton = form.querySelector('button[type="submit"]');
 
         // window.leadCM.formTelInputSelector = function(form) {
         //
@@ -72,7 +72,7 @@ function connectForm() {
                 var userInterested = interestedInput ? interestedInput.value : null;
 
                 var custom_params = {
-                    lc_param_phone: '12123123',
+                    lc_param_phone: '1111',
                 };
 
                 if (userName) {
@@ -88,7 +88,7 @@ function connectForm() {
                 }
 
                 console.log(custom_params);
-                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call('12344', 'universal_form');});
+                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call('1111', 'universal_form');});
 
             }
         });
