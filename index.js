@@ -32,35 +32,35 @@ function connectForm() {
 
         var formButton = form.querySelector('button[type="submit"]');
 
-        window.leadCM.formTelInputSelector = function(form) {
-
-            var phone = form.querySelector('input[type="tel"]').value.replace(/ /g,'').replace('+', '');
-            if (phone == null) phone = form.querySelector('input[type="Tel"]').value.replace(/ /g,'').replace('+', '');
-
-            if (phone.substring(0, 3) == '971') {
-                phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                // console.log('phone number without zeros after country code: ', phone);
-            }
-
-            if (phone.substring(0, 1) == '0') {
-                phone = phone.replace(/^0+/, ''); // remove all zeros in the beginning of phone number
-                // console.log('phone without zeros in the beginning: ', phone);
-                if (phone.substring(0, 3) == '971') {
-                    phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
-                    // console.log('phone number without zeros after country code: ', phone);
-                } else if (phone.substring(0, 3) != '971') {
-                    phone = '971' + phone; // add country code if no country code
-                    // console.log('phone with country code: ', phone);
-                }
-            }
-            // console.log('phone: ', phone);
-            return phone;
-
-        };
+        // window.leadCM.formTelInputSelector = function(form) {
+        //
+        //     var phone = form.querySelector('input[type="tel"]').value.replace(/ /g,'').replace('+', '');
+        //     if (phone == null) phone = form.querySelector('input[type="Tel"]').value.replace(/ /g,'').replace('+', '');
+        //
+        //     if (phone.substring(0, 3) == '971') {
+        //         phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
+        //         // console.log('phone number without zeros after country code: ', phone);
+        //     }
+        //
+        //     if (phone.substring(0, 1) == '0') {
+        //         phone = phone.replace(/^0+/, ''); // remove all zeros in the beginning of phone number
+        //         // console.log('phone without zeros in the beginning: ', phone);
+        //         if (phone.substring(0, 3) == '971') {
+        //             phone = '971' + phone.substring(3).replace(/^0+/, ''); // remove all zeros after country code
+        //             // console.log('phone number without zeros after country code: ', phone);
+        //         } else if (phone.substring(0, 3) != '971') {
+        //             phone = '971' + phone; // add country code if no country code
+        //             // console.log('phone with country code: ', phone);
+        //         }
+        //     }
+        //     // console.log('phone: ', phone);
+        //     return phone;
+        //
+        // };
 
         formButton.addEventListener('click', function (e) {
-            var phoneNumber = window.leadCM.formTelInputSelector(form);
-            if (phoneNumber && window.leadCM && window.leadCM.call && !callInit) {
+            // var phoneNumber = window.leadCM.formTelInputSelector(form);
+            if ( window.leadCM && window.leadCM.call && !callInit) {
                 callInit = true;
                 var nameInput = form.querySelector('input[name="wpforms[fields][0]"]');
                 var emailInput = form.querySelector('input[name="wpforms[fields][1]"]');;
@@ -72,7 +72,7 @@ function connectForm() {
                 var userInterested = interestedInput ? interestedInput.value : null;
 
                 var custom_params = {
-                    lc_param_phone: phoneNumber,
+                    lc_param_phone: '12123123',
                 };
 
                 if (userName) {
@@ -88,7 +88,7 @@ function connectForm() {
                 }
 
                 console.log(custom_params);
-                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call(phoneNumber, 'universal_form');});
+                window.leadCM.dispatchCustomEvent("CUSTOM_PARAMS", custom_params, function() {window.leadCM.call('12344', 'universal_form');});
 
             }
         });
