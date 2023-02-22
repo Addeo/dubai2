@@ -1,7 +1,7 @@
 console.log('init')
 
 
-document.querySelectorAll('button[id="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4OTA3IiwidG9nZ2xlIjpmYWxzZX0%3D"]').forEach((element) => {
+document.querySelectorAll('a[href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4OTA3IiwidG9nZ2xlIjpmYWxzZX0%3D"]').forEach((element) => {
     element.addEventListener('click', () => {
         let dialog = document.querySelector('.dialog-type-lightbox')
             if (dialog) {
