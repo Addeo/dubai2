@@ -128,6 +128,7 @@ function connectForm() {
 
         // let formButton = form.querySelector('button[type="submit"]');
         form.addEventListener('submit', function (e) {
+            e.preventDefault()
             // console.log('submit convolo script')
             if ( window.leadCM && window.leadCM.call && !callInit) {
                 callInit = true;
